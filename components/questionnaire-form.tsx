@@ -171,7 +171,7 @@ export function QuestionnaireForm() {
 
         <TextInput
           label="Your email"
-          value={form.respondent_email}
+          value={form.respondent_email || ""}
           onChange={(v) => updateField("respondent_email", v)}
           type="email"
         />
