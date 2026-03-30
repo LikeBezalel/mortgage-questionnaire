@@ -165,7 +165,7 @@ export function QuestionnaireForm() {
 
         <TextInput
           label="Your name"
-          value={form.respondent_name}
+          value={form.respondent_name || ""}
           onChange={(v) => updateField("respondent_name", v)}
         />
 
@@ -178,7 +178,7 @@ export function QuestionnaireForm() {
 
         <TextInput
           label="Company name"
-          value={form.company_name}
+          value={form.company_name || ""}
           onChange={(v) => updateField("company_name", v)}
         />
 
