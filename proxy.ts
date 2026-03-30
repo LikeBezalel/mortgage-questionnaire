@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   if (!pathname.startsWith("/admin")) {
@@ -22,7 +22,7 @@ export function middleware(req: NextRequest) {
     const [scheme, encoded] = authHeader.split(" ");
 
     if (scheme === "Basic" && encoded) {
-      const decoded = Buffer.from(encoded, "base64").toString("utf8");
+      const decoded = atob(encoded);
       const [user, pass] = decoded.split(":");
 
       if (user === username && pass === password) {
